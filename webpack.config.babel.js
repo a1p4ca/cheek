@@ -35,7 +35,7 @@ const webpackConfig = {
   entry: './app/app.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'public')
   },
 
   plugins: [
@@ -99,6 +99,7 @@ const webpackConfig = {
   devtool: '#inline-source-map',
   devServer: {
     hot: true,
+    compress: true,
     port: 8888,
     host: '0.0.0.0',
     historyApiFallback: true,
