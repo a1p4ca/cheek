@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WebpackMonitor = require('webpack-monitor')
+const Jarvis = require('webpack-jarvis')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -55,7 +56,8 @@ const webpackConfig = {
         removeEmptyAttributes: true
       } : false,
       hash: isProduction
-    })
+    }),
+    new Jarvis()
   ],
 
   module: {
