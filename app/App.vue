@@ -1,6 +1,6 @@
 <template>
     <div class="root">
-        <pre-profile :image-url="profileImg"></pre-profile>
+        <splash></splash>
     </div>
 </template>
 
@@ -19,16 +19,16 @@ import './theme.scss'
 
 import config from '../config'
 
-import PreProfile from './PreProfile.vue'
+import Splash from './Splash.vue'
 
 
 export default {
     name: 'App',
     components: {
-        PreProfile
+        Splash
     },
     computed: {
-        profileImg: () => config.profileImg
+        profileImage: () => config.profileImage
     }
 }
 
