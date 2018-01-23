@@ -33,10 +33,14 @@ const scssExtract = ExtractTextPlugin.extract({
 })
 
 const webpackConfig = {
-  entry: './app/app.js',
+  entry: {
+    splash: './app/splash/index.js',
+    app: './app/app.js'
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    filename: '[name].bundle.js',
+    chunkFilename: "[id].bundle.js",
+    path: path.resolve(__dirname, 'dist/public')
   },
 
   plugins: [
@@ -47,6 +51,7 @@ const webpackConfig = {
     new HtmlPlugin({
       title: 'cheek',
       template: 'app/app.html',
+      filename: 'index.html',
       minify: isProduction ? {
         removeAttributeQuotes: true,
         collapseWhitespace: true,
@@ -55,7 +60,8 @@ const webpackConfig = {
         removeComments: true,
         removeEmptyAttributes: true
       } : false,
-      hash: isProduction
+      hash: isProduction,
+      chunks: ['splash']
     }),
     new Jarvis()
   ],
@@ -104,8 +110,7 @@ const webpackConfig = {
     compress: true,
     port: 8888,
     host: '0.0.0.0',
-    historyApiFallback: true,
-    proxy: { '**': `http://localhost:8081` }
+    historyApiFallback: true
   }
 }
 
