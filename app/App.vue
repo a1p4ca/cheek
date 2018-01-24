@@ -22,9 +22,7 @@ import config from '../config'
 
 export default {
     name: 'App',
-    components: {
-        Splash
-    },
+    components: {},
     computed: {
         profileImage: () => config.profileImage
     }
