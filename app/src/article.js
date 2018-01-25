@@ -1,5 +1,5 @@
 /**
-  * Wrapper of article
+  * An wrapper of article
   */
 export default ({
     date = new Date(),

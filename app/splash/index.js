@@ -1,6 +1,8 @@
 import 'normalize.css'
 import './style.scss'
 
+document.body.classList.add('noscroll')
+
 document.addEventListener(
     'DOMContentLoaded',
     () => fetch('/app.bundle.js')
@@ -10,9 +12,9 @@ document.addEventListener(
 )
 
 function dominate () {
-    document.querySelector('.splash').classList.add('zoomOut')
+    document.querySelector('.splash').classList.add('slideOut')
     document.addEventListener('animationend', ({animationName}) => {
-        if (animationName === 'zoomOut')
+        if (animationName === 'slideOut')
             document.body.classList.remove('noscroll')
     })
 }

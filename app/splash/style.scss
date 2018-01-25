@@ -1,19 +1,13 @@
 @import './alpaca.scss';
 
-@keyframes zoomOut {
-  from {
-    opacity: 1;
-  }
+@keyframes slideOut {
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
 
-  50% {
-    opacity: 0;
-    transform: scale3d(.3, .3, .3);
-  }
-
-  to {
-    opacity: 0;
-    z-index: -100;
-  }
+body {
+    transform: translate3d(0, 0, 0);
 }
 
 .splash {
@@ -22,12 +16,13 @@
     width: 100vw;
 }
 
-noscroll {
+.noscroll {
     overflow: hidden;
 }
 
-.zoomOut {
+.slideOut {
     animation-duration: 1.5s;
     animation-fill-mode: both;
-    animation-name: zoomOut;
+    animation-name: slideOut;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
