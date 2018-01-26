@@ -1,6 +1,6 @@
 .splash {
     height: 100vh;
-    background-color: #fffd60;
+    background-color: #9979f2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,7 @@
     border-top-right-radius: 40% 50%;
     border-bottom-right-radius: 50% 40%;
     border-bottom-left-radius: 50% 40%;
+    box-shadow: 10px #aaaaaa;
 }
 
 .alpaca-body-2 {
@@ -105,18 +106,45 @@
 
 .alpaca-head {
     position: relative;
+    width: 4rem;
+}
+
+.alpaca-ear-left,
+.alpaca-ear-left::after,
+.alpaca-ear-right,
+.alpaca-ear-right::after {
+    position: absolute;
+    height: 1.5rem;
+    width: .5rem;
+    background-color: #dfb26d;
+    border-radius: 30%;
 }
 
 .alpaca-ear-left, .alpaca-ear-right {
-    height: 1.5rem;
-    width: .5rem;
-    background-color: #ba8c47;
+    top: -0.7rem;
+}
+
+.alpaca-ear-left::after, .alpaca-ear-right::after {
+    content: "";
+    top: -3px;
+}
+
+.alpaca-ear-left::after {
+    transform: rotate(-50deg);
+    left: 7px;
+}
+
+.alpaca-ear-right::after {
+    transform: rotate(50deg);
+    right: 7px;
 }
 
 .alpaca-ear-left {
     left: 0;
+    transform: rotate(25deg);
 }
 
 .alpaca-ear-right {
     right: 0;
+    transform: rotate(-25deg);
 }
