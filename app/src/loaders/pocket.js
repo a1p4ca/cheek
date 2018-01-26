@@ -1,5 +1,5 @@
 import Article from '../article'
-import sleep from '../utils'
+import {sleep} from '../utils'
 
 export default async () => {
     await sleep(1000)
@@ -7,11 +7,11 @@ export default async () => {
         Article({
             date: new Date(),
             title: '테스트 링크.',
-            url: 'getpocket.com'
+            url: 'https://getpkal;kjocket.com'
         }),
         Article({
             date: new Date(),
-            title: '테스트 링크 두번째 입니다.',
+            title: '테스트 링크 두번째입니다.',
             url: 'example.com'
         })
     ]

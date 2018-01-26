@@ -1,6 +1,7 @@
 <template>
     <div class="root">
-
+        <article-section name="Medium" :articles="medium"></article-section>
+        <article-section name="Pocket" :articles="pocket"></article-section>
     </div>
 </template>
 
@@ -15,6 +16,8 @@
 import 'normalize.css'
 import './theme.scss'
 
+import ArticleSection from './components/ArticleSection.vue'
+
 import loader from './src/loaders'
 
 import config from '../config'
@@ -24,9 +27,12 @@ export default {
     name: 'App',
     data: () => ({
         isLoading: true,
-        articles: []
+        medium: [],
+        pocket: []
     }),
-    components: {},
+    components: {
+        ArticleSection
+    },
     computed: {
         profileImage: () => config.profileImage
     },
@@ -35,7 +41,7 @@ export default {
     },
     methods: {
         async fetch () {
-            this.articles = await loader.fetch()
+            [this.medium, this.pocket] = [await loader.medium(), await loader.pocket()]
         }
     }
 }

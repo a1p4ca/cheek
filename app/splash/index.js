@@ -12,19 +12,21 @@ document.addEventListener(
 )
 
 function dominate () {
-    document.querySelector('.splash').classList.add('slideOut')
+    const splash = document.querySelector('.splash')
+    splash.classList.add('slideOut')
+
     document.addEventListener('animationend', ({animationName}) => {
-        if (animationName === 'slideOut')
+        if (animationName === 'slideOut') {
             document.body.classList.remove('noscroll')
+            splash.remove()
+        }
     })
 }
 
 function loadScript (text) {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script')
-        const splash = document.querySelector('.splash')
 
-        splash.classList.add('done')
         script.innerHTML = text
         document.body.appendChild(script)
 
