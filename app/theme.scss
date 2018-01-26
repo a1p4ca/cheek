@@ -1,3 +1,8 @@
 body {
     font-family: system-ui;
 }
+
+.root {
+    // https://stackoverflow.com/questions/1394724/css-margin-top-when-parents-got-no-border
+    overflow: auto;
+}
